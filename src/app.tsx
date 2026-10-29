@@ -4,16 +4,22 @@ import { lane } from './lane.js';
 import { readStatus } from './status.js';
 import { Layout } from './views/layout.js';
 import { StatusBoard } from './views/status.js';
+import { readNight } from './digest/reader.js';
+import { registerDigestPage } from './routes/digest-page.js';
+import { registerDigestJson } from './routes/digest-json.js';
 
 export function createApp(config: RigConfig = loadConfig()) {
   const app = new Hono();
 
   app.get('/health', (c) => c.json({ ok: true, lane: lane().id }));
 
+  registerDigestPage(app, config, readNight);
+  registerDigestJson(app, config, readNight);
+
   app.get('/', (c) =>
     c.html(
       <Layout title="status" lane={lane()}>
-        <StatusBoard status={readStatus(config)} />
+        <StatusBoard status={readStatus(config, readNight)} />
       </Layout>,
     ),
   );
