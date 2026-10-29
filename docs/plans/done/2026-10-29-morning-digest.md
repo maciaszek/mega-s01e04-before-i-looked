@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-10-29
 ---
 
 # Morning digest
@@ -77,3 +78,19 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+
+Completion record: The reviewer inspected the preview before the approved marker-free replacement. Issue #7 was initially closed before review, reopened, and updated so its done condition requires reviewer inspection; it was closed only after that inspection. This review gate is part of the completion record.
+
+## Issue list
+
+- [#1 Define the shared digest contract](https://github.com/maciaszek/mega-s01e04-before-i-looked/issues/1)
+- [#2 Read and aggregate each night’s run log](https://github.com/maciaszek/mega-s01e04-before-i-looked/issues/2)
+- [#3 Render the morning digest HTML page](https://github.com/maciaszek/mega-s01e04-before-i-looked/issues/3)
+- [#4 Expose the matching digest JSON endpoint](https://github.com/maciaszek/mega-s01e04-before-i-looked/issues/4)
+- [#5 Link each night from the status board with counts](https://github.com/maciaszek/mega-s01e04-before-i-looked/issues/5)
+- [#6 Test digest HTML and JSON routes with temporary fixtures](https://github.com/maciaszek/mega-s01e04-before-i-looked/issues/6)
+- [#7 Capture and publish the digest preview for review](https://github.com/maciaszek/mega-s01e04-before-i-looked/issues/7)
+- [#8 Remove the preview marker after review and archive the plan](https://github.com/maciaszek/mega-s01e04-before-i-looked/issues/8)
+
+Preview: https://rig-morning-digest-maciaszek.bronze-mango-2106.chatgpt.site
