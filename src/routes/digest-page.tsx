@@ -7,9 +7,8 @@ import { Layout } from '../views/layout.js';
 
 function isCalendarNight(night: string): boolean {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(night)) return false;
-  const [year, month, day] = night.split('-').map(Number);
-  const date = new Date(Date.UTC(year, month - 1, day));
-  return date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day;
+  const instant = Date.parse(`${night}T00:00:00Z`);
+  return Number.isFinite(instant) && new Date(instant).toISOString().slice(0, 10) === night;
 }
 
 export function registerDigestPage(app: Hono, config: RigConfig, readNight: ReadNight): void {
